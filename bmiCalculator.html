@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>BMI Calculator</title>
+        <link rel="stylesheet" href="stylesheet.css">
+    </head>
+
+
+    <script>
+        function calculateBMI(){
+            var weight = parseFloat(document.getElementById("weight").value)
+            var height = (parseFloat(document.getElementById("feet").value) *12) + (parseFloat(document.getElementById("inches").value))
+            var BMI = 703*weight / (height*height)
+            var bmiRounded = BMI.toFixed(1)
+            document.getElementById("newbmi").innerHTML = bmiRounded
+            
+        
+
+        if(bmiRounded >= 40){
+            newbmi.style.color = "red"
+        }else if(bmiRounded >= 30 && bmiRounded <=39.9){
+            newbmi.style.color = "orange"
+        }else if(bmiRounded >= 25 && bmiRounded <=29.9){
+            newbmi.style.color = "yellow"
+        }else if(bmiRounded > 18.5 && bmiRounded <= 24.9){
+            newbmi.style.color = "green"
+        }else{
+            newbmi.style.color = "blue"
+        }
+        
+        }
+    </script>
+
+    
+    <body>
+        <h1>Welcome to the BMI Calculator</h1>
+
+        <form>
+            Please enter your weight in pounds:
+            <input type="text" id="weight"><br>
+        </form>
+        <form>
+            Please enter your height:
+            <input type="text" id="feet">ft.
+            <input type="text" id="inches">in.
+        </form>
+
+        <button type="button">
+        <div id="calculate" onclick="calculateBMI()">Calculate</div>
+        </button>
+        
+        
+
+        <p>Your BMI is: </p> 
+        <div id="newbmi"></div>
+
+        <!-- the image -->
+        <img src="bmiChart.jpg" alt="BMI Chart" width= "50%">
+
+
+
+    </body>
+
+</html>
